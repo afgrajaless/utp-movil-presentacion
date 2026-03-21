@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App UTP Movil - Informe de Evolucion 2023-2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   VARIABLES & RESET
+   ═══════════════════════════════════════════ */
+:root {
+  --utp-blue: #0B3D91;
+  --utp-blue-dark: #062654;
+  --utp-blue-deep: #041A3B;
+  --utp-red: #C8102E;
+  --utp-red-light: #E8384F;
+  --utp-teal: #1A6B8A;
+  --utp-gold: #F0B323;
+  --utp-green: #009B3A;
+  --utp-green-light: #6EE7A0;
+  --white: #FFFFFF;
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-400: #94A3B8;
+  --gray-600: #475569;
+  --gray-800: #1E293B;
+  --gray-900: #0F172A;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-800);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(11, 61, 145, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+nav.scrolled { background: rgba(6, 38, 84, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+.nav-logo { color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+.nav-logo span { color: var(--utp-gold); }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem;
+  font-weight: 500; transition: color 0.3s; position: relative;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+  height: 2px; background: var(--utp-gold); transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--utp-blue-deep) 0%, var(--utp-blue) 40%, var(--utp-teal) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(200, 16, 46, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240, 179, 35, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(26, 107, 138, 0.2) 0%, transparent 70%);
+}
+
+/* Animated particles */
+.particles {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  animation: float-up linear infinite;
+}
+@keyframes float-up {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 2rem;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px; padding: 0.5rem 1.25rem;
+  color: var(--utp-gold); font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 2rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--utp-green); animation: pulse 2s infinite;
+}
+
+.hero h1 {
+  font-family: var(--font-display); font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900; color: var(--white); line-height: 1.05;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+.hero h1 .accent { color: var(--utp-gold); }
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: rgba(255,255,255,0.7);
+  font-weight: 300; margin-bottom: 3rem; line-height: 1.5;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.hero-stats {
+  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-number {
+  font-family: var(--font-display); font-size: 2.5rem; font-weight: 800;
+  color: var(--white); line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+.scroll-indicator {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.4); font-size: 0.75rem; letter-spacing: 0.15em;
+  animation: bounce 2s infinite;
+}
+.scroll-indicator .chevron {
+  width: 24px; height: 24px; border-right: 2px solid rgba(255,255,255,0.4);
+  border-bottom: 2px solid rgba(255,255,255,0.4); transform: rotate(45deg);
+}
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+   ═══════════════════════════════════════════ */
+section { padding: 6rem 2rem; }
+
+.section-container { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--utp-blue);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800; color: var(--gray-900); line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.1rem; color: var(--gray-600); max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATED REVEAL
+   ═══════════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════════
+   NUMBERS SECTION (KPI CARDS)
+   ═══════════════════════════════════════════ */
+#numbers {
+  background: var(--gray-50);
+}
+
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+
+.kpi-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  transition: all 0.4s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(11, 61, 145, 0.12);
+  border-color: var(--utp-blue);
+}
+.kpi-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.kpi-card:nth-child(1)::before { background: var(--utp-blue); }
+.kpi-card:nth-child(2)::before { background: var(--utp-red); }
+.kpi-card:nth-child(3)::before { background: var(--utp-green); }
+.kpi-card:nth-child(4)::before { background: var(--utp-gold); }
+
+.kpi-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1rem;
+}
+.kpi-card:nth-child(1) .kpi-icon { background: rgba(11,61,145,0.1); color: var(--utp-blue); }
+.kpi-card:nth-child(2) .kpi-icon { background: rgba(200,16,46,0.1); color: var(--utp-red); }
+.kpi-card:nth-child(3) .kpi-icon { background: rgba(0,155,58,0.1); color: var(--utp-green); }
+.kpi-card:nth-child(4) .kpi-icon { background: rgba(240,179,35,0.15); color: #C89500; }
+
+.kpi-number {
+  font-family: var(--font-display); font-size: 2.75rem; font-weight: 800;
+  color: var(--gray-900); line-height: 1; margin-bottom: 0.5rem;
+}
+.kpi-label {
+  font-size: 0.9rem; color: var(--gray-600); line-height: 1.4;
+}
+.kpi-trend {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  font-size: 0.8rem; font-weight: 600; margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem; border-radius: 100px;
+  background: rgba(0,155,58,0.1); color: var(--utp-green);
+}
+
+/* ═══════════════════════════════════════════
+   GROWTH CHART
+   ═══════════════════════════════════════════ */
+#growth {
+  background: var(--white);
+}
+
+.chart-container {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, var(--utp-blue-deep), var(--utp-blue));
+  border-radius: 24px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.chart-container::before {
+  content: ''; position: absolute; top: -50%; right: -20%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(240,179,35,0.08), transparent);
+}
+
+.chart-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 2rem; position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem;
+}
+.chart-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--white); }
+.chart-legend { display: flex; gap: 1.5rem; }
+.chart-legend-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+.chart-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+.growth-chart-svg {
+  width: 100%; height: 300px; position: relative; z-index: 1;
+}
+
+.chart-bar-group { cursor: pointer; }
+.chart-bar {
+  transition: all 0.4s ease;
+  rx: 6; ry: 6;
+}
+.chart-bar-group:hover .chart-bar { filter: brightness(1.2); }
+.chart-bar-label {
+  fill: rgba(255,255,255,0.6); font-size: 12px; text-anchor: middle;
+  font-family: var(--font-body);
+}
+.chart-bar-value {
+  fill: var(--white); font-size: 13px; font-weight: 700; text-anchor: middle;
+  font-family: var(--font-display);
+}
+
+.growth-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(0,155,58,0.2); border: 1px solid rgba(0,155,58,0.3);
+  border-radius: 100px; padding: 0.75rem 1.5rem;
+  color: var(--utp-green-light); font-weight: 700; font-size: 1.1rem;
+  margin-top: 1.5rem; position: relative; z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   TIMELINE
+   ═══════════════════════════════════════════ */
+#timeline {
+  background: var(--gray-50);
+  position: relative;
+}
+
+.timeline-wrapper { position: relative; margin-top: 3rem; }
+
+.timeline-line {
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 3px; background: var(--gray-200); transform: translateX(-50%);
+}
+.timeline-line-fill {
+  position: absolute; left: 50%; top: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--utp-blue), var(--utp-green));
+  transform: translateX(-50%); height: 0; transition: height 1.5s ease-out;
+}
+
+.timeline-item {
+  display: flex; align-items: flex-start;
+  margin-bottom: 3rem; position: relative;
+}
+.timeline-item:nth-child(odd) { flex-direction: row; }
+.timeline-item:nth-child(even) { flex-direction: row-reverse; }
+
+.timeline-content {
+  width: 45%; padding: 1.5rem;
+  background: var(--white); border-radius: 16px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.4s ease;
+}
+.timeline-content:hover {
+  box-shadow: 0 10px 40px rgba(11,61,145,0.1);
+  border-color: var(--utp-blue);
+}
+
+.timeline-dot {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--utp-blue); border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--utp-blue);
+  z-index: 2;
+}
+
+.timeline-date {
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+  color: var(--utp-blue); margin-bottom: 0.5rem;
+}
+.timeline-heading {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  color: var(--gray-900); margin-bottom: 0.25rem;
+}
+.timeline-desc {
+  font-size: 0.9rem; color: var(--gray-600); line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .timeline-line, .timeline-line-fill { left: 20px; }
+  .timeline-dot { left: 20px; }
+  .timeline-item, .timeline-item:nth-child(even) { flex-direction: row; padding-left: 50px; }
+  .timeline-content { width: 100%; }
+}
+
+/* ═══════════════════════════════════════════
+   ROLES (MODULES)
+   ═══════════════════════════════════════════ */
+#roles {
+  background: var(--white);
+}
+
+.roles-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+
+.role-card {
+  border-radius: 20px; padding: 2rem; position: relative;
+  overflow: hidden; color: var(--white);
+  transition: transform 0.4s ease;
+}
+.role-card:hover { transform: translateY(-6px); }
+
+.role-card:nth-child(1) { background: linear-gradient(135deg, #0B3D91, #1A6B8A); }
+.role-card:nth-child(2) { background: linear-gradient(135deg, #C8102E, #E8384F); }
+.role-card:nth-child(3) { background: linear-gradient(135deg, #009B3A, #2DD66F); }
+.role-card:nth-child(4) { background: linear-gradient(135deg, #7C3AED, #A855F7); }
+
+.role-card::before {
+  content: ''; position: absolute; top: -30px; right: -30px;
+  width: 120px; height: 120px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.role-count {
+  font-family: var(--font-display); font-size: 3rem; font-weight: 900;
+  line-height: 1; margin-bottom: 0.25rem;
+}
+.role-name {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.role-desc {
+  font-size: 0.85rem; opacity: 0.8; margin-bottom: 1.25rem;
+}
+
+.role-modules {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.role-module-tag {
+  background: rgba(255,255,255,0.2); border-radius: 6px;
+  padding: 0.2rem 0.6rem; font-size: 0.7rem; font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* ═══════════════════════════════════════════
+   USERS (DEMOGRAPHICS)
+   ═══════════════════════════════════════════ */
+#users {
+  background: var(--gray-50);
+}
+
+.users-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  margin-top: 3rem; align-items: center;
+}
+@media (max-width: 768px) { .users-grid { grid-template-columns: 1fr; } }
+
+.donut-chart-container {
+  display: flex; justify-content: center; align-items: center;
+  position: relative;
+}
+.donut-center-text {
+  position: absolute; text-align: center;
+}
+.donut-center-number {
+  font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--gray-900);
+}
+.donut-center-label {
+  font-size: 0.85rem; color: var(--gray-600);
+}
+
+.user-stats-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.user-stat-row {
+  display: flex; align-items: center; gap: 1rem;
+}
+.user-stat-dot {
+  width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+}
+.user-stat-info { flex: 1; }
+.user-stat-name { font-weight: 600; color: var(--gray-900); font-size: 0.95rem; }
+.user-stat-detail { font-size: 0.85rem; color: var(--gray-600); }
+.user-stat-bar {
+  height: 8px; border-radius: 4px; background: var(--gray-200);
+  margin-top: 0.4rem; overflow: hidden;
+}
+.user-stat-bar-fill {
+  height: 100%; border-radius: 4px; transition: width 1.5s ease-out;
+  width: 0;
+}
+
+.platform-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+}
+.platform-card {
+  background: var(--white); border-radius: 16px; padding: 1.5rem;
+  text-align: center; border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+.platform-card:hover {
+  border-color: var(--utp-blue); box-shadow: 0 8px 30px rgba(11,61,145,0.1);
+}
+.platform-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.platform-name { font-weight: 700; color: var(--gray-900); font-size: 1rem; }
+.platform-pct {
+  font-family: var(--font-display); font-size: 1.75rem; font-weight: 800;
+  color: var(--utp-blue);
+}
+
+/* ═══════════════════════════════════════════
+   IMPACT (MSU + RATINGS)
+   ═══════════════════════════════════════════ */
+#impact {
+  background: var(--white);
+}
+
+.impact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) { .impact-grid { grid-template-columns: 1fr; } }
+
+.impact-card {
+  background: var(--gray-50); border-radius: 20px; padding: 2rem;
+  text-align: center; border: 1px solid var(--gray-200);
+  transition: all 0.4s ease;
+}
+.impact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+.impact-number {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--utp-blue), var(--utp-teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1;
+}
+.impact-label {
+  font-size: 1rem; font-weight: 600; color: var(--gray-900); margin-top: 0.5rem;
+}
+.impact-detail {
+  font-size: 0.85rem; color: var(--gray-600); margin-top: 0.25rem;
+}
+
+/* Store ratings */
+.ratings-section {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
+}
+@media (max-width: 768px) { .ratings-section { grid-template-columns: 1fr; } }
+
+.rating-card {
+  border-radius: 24px; padding: 2.5rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.rating-card.google {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: var(--white);
+}
+.rating-card.apple {
+  background: linear-gradient(135deg, var(--gray-900), #1e293b);
+  color: var(--white);
+}
+
+.rating-store-name {
+  font-size: 0.85rem; font-weight: 600; opacity: 0.7;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
+}
+.rating-stars { font-size: 2rem; margin-bottom: 1rem; }
+.rating-before-after {
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.rating-value {
+  font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+}
+.rating-arrow { font-size: 1.5rem; color: var(--utp-green-light); }
+.rating-improvement {
+  display: inline-block; background: rgba(0,155,58,0.2);
+  color: var(--utp-green-light); padding: 0.4rem 1rem;
+  border-radius: 100px; font-weight: 700; font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════════════
+   MIGRATION STATUS
+   ═══════════════════════════════════════════ */
+#migration {
+  background: var(--gray-50);
+}
+
+.migration-bars {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
+}
+@media (max-width: 768px) { .migration-bars { grid-template-columns: 1fr; } }
+
+.migration-card {
+  background: var(--white); border-radius: 20px; padding: 2rem;
+  border: 1px solid var(--gray-200);
+}
+.migration-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  color: var(--gray-900); margin-bottom: 0.25rem;
+}
+.migration-detail {
+  font-size: 0.85rem; color: var(--gray-600); margin-bottom: 1.25rem;
+}
+.progress-bar {
+  height: 20px; background: var(--gray-100); border-radius: 10px;
+  overflow: hidden; position: relative;
+}
+.progress-fill {
+  height: 100%; border-radius: 10px;
+  transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0; position: relative;
+}
+.progress-fill.blue { background: linear-gradient(90deg, var(--utp-blue), var(--utp-teal)); }
+.progress-fill.green { background: linear-gradient(90deg, var(--utp-green), #2DD66F); }
+
+.progress-label {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+  color: var(--gray-900); margin-top: 0.75rem;
+}
+
+/* Migrated modules grid */
+.modules-migrated {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem; margin-top: 2rem;
+}
+.module-chip {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 10px; padding: 0.6rem 0.8rem;
+  font-size: 0.8rem; font-weight: 500; color: var(--gray-800);
+  transition: all 0.3s ease;
+}
+.module-chip:hover {
+  border-color: var(--utp-green); background: rgba(0,155,58,0.05);
+}
+.module-chip .check {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--utp-green); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 700; flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   APP SHOWCASE
+   ═══════════════════════════════════════════ */
+#showcase {
+  background: linear-gradient(135deg, var(--utp-blue-deep) 0%, var(--utp-blue) 50%, var(--utp-teal) 100%);
+  position: relative; overflow: hidden;
+}
+#showcase::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(200,16,46,0.1), transparent 60%);
+}
+
+.showcase-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  align-items: center; position: relative; z-index: 1;
+}
+@media (max-width: 768px) {
+  .showcase-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+.showcase-text .section-label { color: var(--utp-gold); }
+.showcase-text .section-title { color: var(--white); }
+.showcase-text .section-subtitle { color: rgba(255,255,255,0.7); }
+
+.showcase-features {
+  display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;
+}
+.showcase-feature {
+  display: flex; align-items: center; gap: 1rem;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  color: var(--white); font-size: 0.95rem; font-weight: 500;
+  transition: all 0.3s ease;
+}
+.showcase-feature:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+}
+.showcase-feature-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(240,179,35,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+
+.phone-mockup {
+  display: flex; justify-content: center;
+}
+.phone-frame {
+  width: 280px; height: 570px;
+  background: #1a1a1a; border-radius: 40px;
+  padding: 12px; position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+}
+.phone-frame::before {
+  content: ''; position: absolute; top: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 100px; height: 24px;
+  background: #1a1a1a; border-radius: 0 0 16px 16px;
+  z-index: 3;
+}
+.phone-screen {
+  width: 100%; height: 100%; border-radius: 30px;
+  overflow: hidden; background: var(--white);
+}
+.phone-screen img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN RATIONALE
+   ═══════════════════════════════════════════ */
+#design {
+  background: var(--white);
+}
+
+.design-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) { .design-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.design-card {
+  background: var(--gray-50); border-radius: 20px;
+  padding: 2rem; text-align: center;
+  border: 1px solid var(--gray-200);
+  transition: all 0.4s ease;
+}
+.design-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(11,61,145,0.1);
+  border-color: var(--utp-blue);
+}
+
+.design-number {
+  font-family: var(--font-display); font-size: 2.5rem;
+  font-weight: 900; color: var(--utp-blue);
+  width: 64px; height: 64px; border-radius: 16px;
+  background: rgba(11,61,145,0.08);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.design-heading {
+  font-family: var(--font-display); font-size: 1.1rem;
+  font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;
+}
+.design-desc {
+  font-size: 0.85rem; color: var(--gray-600); line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════
+   RETENTION SECTION
+   ═══════════════════════════════════════════ */
+#retention {
+  background: var(--gray-50);
+}
+
+.retention-chart {
+  display: flex; gap: 2rem; justify-content: center;
+  align-items: flex-end; margin-top: 3rem; flex-wrap: wrap;
+}
+
+.retention-bar-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.retention-bar {
+  width: 120px; border-radius: 12px 12px 0 0;
+  transition: height 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 0; position: relative;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 1rem;
+}
+.retention-bar-value {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 1.5rem; color: var(--white);
+}
+.retention-bar-label {
+  font-size: 0.8rem; color: var(--gray-600); font-weight: 600;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════
+   FUTURE / NEXT
+   ═══════════════════════════════════════════ */
+#future {
+  background: linear-gradient(135deg, var(--utp-blue-deep), var(--utp-blue));
+  color: var(--white); text-align: center;
+}
+#future .section-label { color: var(--utp-gold); }
+#future .section-title { color: var(--white); }
+
+.future-items {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin-top: 3rem;
+}
+@media (max-width: 768px) { .future-items { grid-template-columns: 1fr; } }
+
+.future-item {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px; padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+.future-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-4px);
+}
+.future-icon {
+  font-size: 2.5rem; margin-bottom: 1rem;
+}
+.future-name {
+  font-family: var(--font-display); font-size: 1.25rem;
+  font-weight: 700; margin-bottom: 0.5rem;
+}
+.future-desc {
+  font-size: 0.9rem; opacity: 0.7; line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════
+   CTA / FOOTER
+   ═══════════════════════════════════════════ */
+#cta {
+  background: var(--white); text-align: center; padding: 5rem 2rem;
+}
+
+.cta-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900; color: var(--gray-900); margin-bottom: 1.5rem;
+}
+
+.qr-codes {
+  display: flex; justify-content: center; gap: 3rem; margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.qr-item { text-align: center; }
+.qr-item img {
+  width: 160px; height: 160px; border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border: 2px solid var(--gray-200);
+}
+.qr-item p {
+  margin-top: 0.75rem; font-weight: 600; color: var(--gray-900);
+}
+
+footer {
+  background: var(--utp-blue-deep); color: rgba(255,255,255,0.5);
+  text-align: center; padding: 2rem;
+  font-size: 0.85rem;
+}
+footer strong { color: var(--white); font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Spinning glow on hero */
+.hero-glow {
+  position: absolute; width: 600px; height: 600px;
+  border-radius: 50%; filter: blur(120px);
+  animation: glow-spin 20s linear infinite;
+}
+.hero-glow-1 {
+  background: rgba(200,16,46,0.12); top: -20%; right: -10%;
+}
+.hero-glow-2 {
+  background: rgba(240,179,35,0.08); bottom: -20%; left: -10%;
+}
+@keyframes glow-spin {
+  from { transform: rotate(0deg) translateX(50px); }
+  to { transform: rotate(360deg) translateX(50px); }
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">UTP <span>Movil</span></div>
+  <ul class="nav-links">
+    <li><a href="#numbers">Numeros</a></li>
+    <li><a href="#growth">Crecimiento</a></li>
+    <li><a href="#timeline">Evolucion</a></li>
+    <li><a href="#roles">Modulos</a></li>
+    <li><a href="#impact">Impacto</a></li>
+    <li><a href="#showcase">App</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Informe de Evolucion 2023 - 2026
+    </div>
+    <h1>App UTP <span class="accent">Movil</span></h1>
+    <p class="hero-subtitle">3 anos conectando nuestra comunidad universitaria.<br>De 573 a 11.833 dispositivos diarios.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="31">0</div>
+        <div class="hero-stat-label">Modulos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="21141">0</div>
+        <div class="hero-stat-label">Usuarios</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="4">0</div>
+        <div class="hero-stat-label">Perfiles</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number" data-count="2">0</div>
+        <div class="hero-stat-label">Plataformas</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>SCROLL</span>
+    <div class="chevron"></div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">La app en numeros</div>
+      <div class="section-title">Crecimiento sostenido e impactante</div>
+      <p class="section-subtitle mx-auto">La App UTP Movil se ha convertido en el canal digital mas importante de la universidad.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card reveal reveal-delay-1">
+        <div class="kpi-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+        </div>
+        <div class="kpi-number" data-count="11075">0</div>
+        <div class="kpi-label">Dispositivos diarios promedio</div>
+        <div class="kpi-trend">+1641% desde 2023</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-2">
+        <div class="kpi-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="kpi-number" data-count="21141">0</div>
+        <div class="kpi-label">Usuarios registrados</div>
+        <div class="kpi-trend">80% de la comunidad la conoce</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-3">
+        <div class="kpi-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="kpi-number" data-count="31">0</div>
+        <div class="kpi-label">Modulos funcionales</div>
+        <div class="kpi-trend">Plataforma integral</div>
+      </div>
+      <div class="kpi-card reveal reveal-delay-4">
+        <div class="kpi-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="kpi-number">+1641<span style="font-size:1.5rem">%</span></div>
+        <div class="kpi-label">Crecimiento de base instalada</div>
+        <div class="kpi-trend">Mar 2023 → Mar 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH CHART -->
+<section id="growth">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">Crecimiento</div>
+      <div class="section-title">Evolucion semestre a semestre</div>
+      <p class="section-subtitle">De 621 dispositivos en S1 2023 a mas de 10.800 en S1 2026.</p>
+    </div>
+    <div class="chart-container reveal">
+      <div class="chart-header">
+        <div class="chart-title">Base instalada promedio por semestre</div>
+        <div class="chart-legend">
+          <div class="chart-legend-item"><div class="chart-legend-dot" style="background: var(--utp-gold)"></div> Dispositivos</div>
+        </div>
+      </div>
+      <svg class="growth-chart-svg" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet">
+        <!-- Grid lines -->
+        <line x1="60" y1="260" x2="760" y2="260" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="60" y1="200" x2="760" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="60" y1="140" x2="760" y2="140" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="60" y1="80" x2="760" y2="80" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4"/>
+
+        <!-- Y axis labels -->
+        <text x="50" y="265" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="end" font-family="Inter">0</text>
+        <text x="50" y="205" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="end" font-family="Inter">4K</text>
+        <text x="50" y="145" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="end" font-family="Inter">8K</text>
+        <text x="50" y="85" fill="rgba(255,255,255,0.4)" font-size="11" text-anchor="end" font-family="Inter">12K</text>
+
+        <!-- Bars -->
+        <g class="chart-bar-group" data-target-height="11">
+          <rect class="chart-bar" x="85" y="249" width="70" height="11" fill="#C8102E" opacity="0.7"/>
+          <text class="chart-bar-value" x="120" y="244">621</text>
+          <text class="chart-bar-label" x="120" y="280">S1 '23</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="76">
+          <rect class="chart-bar" x="185" y="184" width="70" height="76" fill="var(--utp-gold)"/>
+          <text class="chart-bar-value" x="220" y="179">4.276</text>
+          <text class="chart-bar-label" x="220" y="280">S2 '23</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="129">
+          <rect class="chart-bar" x="285" y="131" width="70" height="129" fill="var(--utp-gold)"/>
+          <text class="chart-bar-value" x="320" y="126">7.222</text>
+          <text class="chart-bar-label" x="320" y="280">S1 '24</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="147">
+          <rect class="chart-bar" x="385" y="113" width="70" height="147" fill="var(--utp-gold)"/>
+          <text class="chart-bar-value" x="420" y="108">8.265</text>
+          <text class="chart-bar-label" x="420" y="280">S2 '24</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="164">
+          <rect class="chart-bar" x="485" y="96" width="70" height="164" fill="var(--utp-gold)"/>
+          <text class="chart-bar-value" x="520" y="91">9.188</text>
+          <text class="chart-bar-label" x="520" y="280">S1 '25</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="173">
+          <rect class="chart-bar" x="585" y="87" width="70" height="173" fill="var(--utp-gold)"/>
+          <text class="chart-bar-value" x="620" y="82">9.701</text>
+          <text class="chart-bar-label" x="620" y="280">S2 '25</text>
+        </g>
+        <g class="chart-bar-group" data-target-height="193">
+          <rect class="chart-bar" x="685" y="67" width="70" height="193" fill="var(--utp-green)" opacity="0.9"/>
+          <text class="chart-bar-value" x="720" y="58" fill="var(--utp-green-light)" font-size="15">10.809</text>
+          <text class="chart-bar-label" x="720" y="280">S1 '26</text>
+        </g>
+
+        <!-- Trend line -->
+        <polyline points="120,249 220,184 320,131 420,113 520,96 620,87 720,67"
+          fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6"/>
+      </svg>
+      <div class="growth-badge">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="17 1 17 7 11 7"/><polyline points="1 19 7 13 11 17 19 5"/></svg>
+        +1641% crecimiento total
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Linea de tiempo</div>
+      <div class="section-title">Evolucion de UTP Movil</div>
+      <p class="section-subtitle mx-auto">De una app basica a una plataforma integral con 31 modulos y Design System.</p>
+    </div>
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      <div class="timeline-line-fill" id="timeline-fill"></div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2023 S1</div>
+          <div class="timeline-heading">Inicio del Proyecto</div>
+          <div class="timeline-desc">Se recibe el aplicativo de Veritran y se comienza con el desarrollo de una solucion propia.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2023 S2</div>
+          <div class="timeline-heading">Lanzamiento Inicial</div>
+          <div class="timeline-desc">Primera version con modulos basicos. Salto de +589% en base instalada — el mayor crecimiento.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2024 S1</div>
+          <div class="timeline-heading">Migracion de Modulos</div>
+          <div class="timeline-desc">+8 modulos migrados del Portal Estudiante y Docente al backend propio.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2024 S2</div>
+          <div class="timeline-heading">Expansion de Modulos</div>
+          <div class="timeline-desc">+7 modulos nuevos integrados. Portal Docente y Administrativo completos.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2025 S1</div>
+          <div class="timeline-heading">Mejora de Performance</div>
+          <div class="timeline-desc">Refactorizacion completa para cumplir con las necesidades de rendimiento en movil.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2025 S2</div>
+          <div class="timeline-heading">Design System UTP</div>
+          <div class="timeline-desc">Identidad visual institucional unificada. Sistema de diseno propio.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-date">2026 S1</div>
+          <div class="timeline-heading">V6.0.0 Release</div>
+          <div class="timeline-desc">Implementacion del nuevo diseno para todo el portal. La version mas completa y pulida.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot" style="background: var(--utp-green); box-shadow: 0 0 0 3px var(--utp-green);"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content" style="border-color: var(--utp-gold); background: rgba(240,179,35,0.05);">
+          <div class="timeline-date" style="color: var(--utp-gold);">2026 S2 — Proximos</div>
+          <div class="timeline-heading">Parqueaderos, Helper de Matricula, Acceso por Huella</div>
+          <div class="timeline-desc">Nuevas funcionalidades que expandiran aun mas la plataforma.</div>
+        </div>
+        <div style="width: 10%;"></div>
+        <div class="timeline-dot" style="background: var(--utp-gold); box-shadow: 0 0 0 3px var(--utp-gold);"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES & MODULES -->
+<section id="roles">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Funcionalidades</div>
+      <div class="section-title">31 modulos, 4 perfiles principales</div>
+      <p class="section-subtitle mx-auto">Cada perfil tiene modulos especificos con sub-roles que personalizan la experiencia.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card reveal reveal-delay-1">
+        <div class="role-count">17</div>
+        <div class="role-name">General</div>
+        <div class="role-desc">Visitantes y registrados — modulos base</div>
+        <div class="role-modules">
+          <span class="role-module-tag">Directorio</span>
+          <span class="role-module-tag">Campus</span>
+          <span class="role-module-tag">Noticias</span>
+          <span class="role-module-tag">Eventos</span>
+          <span class="role-module-tag">Emisora</span>
+          <span class="role-module-tag">Biblioteca</span>
+          <span class="role-module-tag">PQRS</span>
+          <span class="role-module-tag">Tienda UTP</span>
+          <span class="role-module-tag">+9 mas</span>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-2">
+        <div class="role-count">+7</div>
+        <div class="role-name">Estudiante</div>
+        <div class="role-desc">Base + modulos academicos adicionales</div>
+        <div class="role-modules">
+          <span class="role-module-tag">Notas Parciales</span>
+          <span class="role-module-tag">Horario</span>
+          <span class="role-module-tag">Historial</span>
+          <span class="role-module-tag">Eval. Docente</span>
+          <span class="role-module-tag">Carnet</span>
+          <span class="role-module-tag">Punto Violeta</span>
+          <span class="role-module-tag">Bitacora</span>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-3">
+        <div class="role-count">+9</div>
+        <div class="role-name">Docente</div>
+        <div class="role-desc">Base + modulos docentes y laborales</div>
+        <div class="role-modules">
+          <span class="role-module-tag">Editar Notas</span>
+          <span class="role-module-tag">Horario</span>
+          <span class="role-module-tag">Nomina</span>
+          <span class="role-module-tag">Memorandos</span>
+          <span class="role-module-tag">Inventario</span>
+          <span class="role-module-tag">Incapacidades</span>
+          <span class="role-module-tag">Carnet</span>
+          <span class="role-module-tag">Cert. Pago</span>
+          <span class="role-module-tag">Punto Violeta</span>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-4">
+        <div class="role-count">+7</div>
+        <div class="role-name">Administrativo</div>
+        <div class="role-desc">Base + modulos laborales y administrativos</div>
+        <div class="role-modules">
+          <span class="role-module-tag">Nomina</span>
+          <span class="role-module-tag">Memorandos</span>
+          <span class="role-module-tag">Inventario</span>
+          <span class="role-module-tag">Incapacidades</span>
+          <span class="role-module-tag">Carnet</span>
+          <span class="role-module-tag">Punto Violeta</span>
+          <span class="role-module-tag">Cert. Pago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USERS -->
+<section id="users">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Nuestra comunidad digital</div>
+      <div class="section-title">Quien usa la app?</div>
+      <p class="section-subtitle mx-auto">21.141 usuarios registrados con potencial sobre 17.777 estudiantes activos.</p>
+    </div>
+    <div class="users-grid reveal">
+      <div>
+        <div class="donut-chart-container">
+          <svg width="280" height="280" viewBox="0 0 280 280">
+            <circle cx="140" cy="140" r="100" fill="none" stroke="var(--gray-100)" stroke-width="30"/>
+            <!-- Students: 95.8% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="var(--utp-blue)" stroke-width="30"
+              stroke-dasharray="602.2 628.3" stroke-dashoffset="157"
+              style="transition: stroke-dasharray 2s ease-out;"
+              transform="rotate(-90 140 140)"/>
+            <!-- Teachers: 4% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="var(--utp-red)" stroke-width="30"
+              stroke-dasharray="25.1 628.3" stroke-dashoffset="-445.2"
+              transform="rotate(-90 140 140)"/>
+            <!-- Admin: 0.2% -->
+            <circle cx="140" cy="140" r="100" fill="none" stroke="var(--utp-gold)" stroke-width="30"
+              stroke-dasharray="1.3 628.3" stroke-dashoffset="-470.3"
+              transform="rotate(-90 140 140)"/>
+          </svg>
+          <div class="donut-center-text">
+            <div class="donut-center-number">21K+</div>
+            <div class="donut-center-label">usuarios</div>
+          </div>
+        </div>
+        <div class="user-stats-list" style="margin-top: 2rem;">
+          <div class="user-stat-row">
+            <div class="user-stat-dot" style="background: var(--utp-blue);"></div>
+            <div class="user-stat-info">
+              <div class="user-stat-name">Estudiantes — 95.8%</div>
+              <div class="user-stat-detail">Mayor segmento de usuarios</div>
+              <div class="user-stat-bar"><div class="user-stat-bar-fill" data-width="95.8" style="background: var(--utp-blue);"></div></div>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="user-stat-dot" style="background: var(--utp-red);"></div>
+            <div class="user-stat-info">
+              <div class="user-stat-name">Docentes — 4.0%</div>
+              <div class="user-stat-detail">824 de 1.459 docentes de la UTP</div>
+              <div class="user-stat-bar"><div class="user-stat-bar-fill" data-width="56.5" style="background: var(--utp-red);"></div></div>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="user-stat-dot" style="background: var(--utp-gold);"></div>
+            <div class="user-stat-info">
+              <div class="user-stat-name">Administrativos — 0.2%</div>
+              <div class="user-stat-detail">Gran oportunidad de expansion</div>
+              <div class="user-stat-bar"><div class="user-stat-bar-fill" data-width="2" style="background: var(--utp-gold);"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Plataforma movil</h3>
+        <div class="platform-cards">
+          <div class="platform-card">
+            <div class="platform-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--utp-green)"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24C14.86 8.3 13.47 8 12 8s-2.86.3-4.47.91L5.65 5.67c-.19-.29-.54-.37-.83-.22-.31.16-.42.54-.26.85L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+            </div>
+            <div class="platform-name">Android</div>
+            <div class="platform-pct">56.3%</div>
+          </div>
+          <div class="platform-card">
+            <div class="platform-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--gray-800)"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            </div>
+            <div class="platform-name">iOS</div>
+            <div class="platform-pct">41.5%</div>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 1rem; text-align: center; line-height: 1.5;">
+          Distribucion equilibrada — ambas plataformas requieren atencion prioritaria equivalente.
+        </p>
+
+        <!-- Retention -->
+        <div style="margin-top: 2.5rem;">
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Retencion entre semestres</h3>
+          <div class="retention-chart" style="justify-content: flex-start;">
+            <div class="retention-bar-item">
+              <div class="retention-bar" data-height="118" style="background: linear-gradient(to top, var(--utp-blue), var(--utp-teal));">
+                <div class="retention-bar-value">59%</div>
+              </div>
+              <div class="retention-bar-label">Cohorte<br>2024-S2</div>
+            </div>
+            <div class="retention-bar-item">
+              <div class="retention-bar" data-height="134" style="background: linear-gradient(to top, var(--utp-blue), #3B82F6);">
+                <div class="retention-bar-value">67%</div>
+              </div>
+              <div class="retention-bar-label">Cohorte<br>2025-S1</div>
+            </div>
+            <div class="retention-bar-item">
+              <div class="retention-bar" data-height="148" style="background: linear-gradient(to top, var(--utp-green), #2DD66F);">
+                <div class="retention-bar-value">74%</div>
+              </div>
+              <div class="retention-bar-label">Cohorte<br>2025-S2</div>
+            </div>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--utp-green); font-weight: 600; margin-top: 0.75rem;">
+            Tendencia positiva: cohortes recientes retienen mas usuarios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Impacto real</div>
+      <div class="section-title">Lo que dice nuestra comunidad — MSU 2025</div>
+      <p class="section-subtitle mx-auto">Reconocimiento creciente y mejoras reales en calificaciones de tiendas.</p>
+    </div>
+    <div class="impact-grid reveal">
+      <div class="impact-card">
+        <div class="impact-number">80%</div>
+        <div class="impact-label">La conocen</div>
+        <div class="impact-detail">+12 puntos vs 2024</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">54%</div>
+        <div class="impact-label">La usan cada semana</div>
+        <div class="impact-detail">+4 puntos vs 2024</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-number">#3</div>
+        <div class="impact-label">Medio institucional</div>
+        <div class="impact-detail">Mas usado de 8 medidos</div>
+      </div>
+    </div>
+
+    <!-- Store Ratings -->
+    <div class="ratings-section reveal">
+      <div class="rating-card google">
+        <div class="rating-store-name">Google Play Store</div>
+        <div class="rating-stars">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#F0B323" opacity="0.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+        <div class="rating-before-after">
+          <div>
+            <div style="font-size: 0.75rem; opacity: 0.5;">Antes</div>
+            <div class="rating-value" style="color: var(--utp-red-light);">2.2</div>
+          </div>
+          <div class="rating-arrow">→</div>
+          <div>
+            <div style="font-size: 0.75rem; opacity: 0.5;">Despues</div>
+            <div class="rating-value" style="color: var(--utp-green-light);">3.5</div>
+          </div>
+        </div>
+        <div class="rating-improvement">+59% de mejora</div>
+      </div>
+      <div class="rating-card apple">
+        <div class="rating-store-name">Apple App Store</div>
+        <div class="rating-stars">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+        <div class="rating-value" style="font-size: 5rem; color: var(--utp-gold); margin: 0.5rem 0;">5.0</div>
+        <div class="rating-improvement" style="background: rgba(240,179,35,0.2); color: var(--utp-gold);">Calificacion perfecta</div>
+        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 0.75rem;">Score reiniciado — usuarios nuevos evaluan con la maxima calificacion</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SHOWCASE -->
+<section id="showcase">
+  <div class="section-container">
+    <div class="showcase-grid">
+      <div class="showcase-text reveal">
+        <div class="section-label">La app</div>
+        <div class="section-title">UTP Movil V6.0</div>
+        <p class="section-subtitle">La version mas completa y pulida de la app. Nuevo diseno institucional con Design System propio.</p>
+        <div class="showcase-features">
+          <div class="showcase-feature">
+            <div class="showcase-feature-icon">📱</div>
+            Android e iOS
+          </div>
+          <div class="showcase-feature">
+            <div class="showcase-feature-icon">🎨</div>
+            Design System institucional
+          </div>
+          <div class="showcase-feature">
+            <div class="showcase-feature-icon">⚡</div>
+            Rendimiento optimizado
+          </div>
+          <div class="showcase-feature">
+            <div class="showcase-feature-icon">🔒</div>
+            Autenticacion segura (JWT + LDAP)
+          </div>
+          <div class="showcase-feature">
+            <div class="showcase-feature-icon">🗺️</div>
+            Mapa interactivo del campus
+          </div>
+        </div>
+      </div>
+      <div class="phone-mockup reveal reveal-delay-2">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <img src="assets/app-screenshot.png" alt="UTP Movil App Screenshot" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN RATIONALE -->
+<section id="design">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">El diseno importa</div>
+      <div class="section-title">Por que actualizar constantemente?</div>
+    </div>
+    <div class="design-grid">
+      <div class="design-card reveal reveal-delay-1">
+        <div class="design-number">01</div>
+        <div class="design-heading">Expectativas</div>
+        <div class="design-desc">Los usuarios comparan con Instagram, TikTok y Spotify</div>
+      </div>
+      <div class="design-card reveal reveal-delay-2">
+        <div class="design-number">02</div>
+        <div class="design-heading">Confianza</div>
+        <div class="design-desc">La primera impresion digital de la UTP es la app</div>
+      </div>
+      <div class="design-card reveal reveal-delay-3">
+        <div class="design-number">03</div>
+        <div class="design-heading">Usabilidad</div>
+        <div class="design-desc">Reduce errores, acelera tareas, mejora satisfaccion</div>
+      </div>
+      <div class="design-card reveal reveal-delay-4">
+        <div class="design-number">04</div>
+        <div class="design-heading">Competitividad</div>
+        <div class="design-desc">Otras instituciones se modernizan constantemente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section id="migration">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Estado de migracion</div>
+      <div class="section-title">Cuanto hemos avanzado?</div>
+    </div>
+    <div class="migration-bars reveal">
+      <div class="migration-card">
+        <div class="migration-title">Servicios con backend propio</div>
+        <div class="migration-detail">21 de 31 modulos migrados</div>
+        <div class="progress-bar"><div class="progress-fill blue" data-width="67.7"></div></div>
+        <div class="progress-label">67.7%</div>
+      </div>
+      <div class="migration-card">
+        <div class="migration-title">Identidad visual unificada — Design System v6</div>
+        <div class="migration-detail">15 de 20 modulos nativos</div>
+        <div class="progress-bar"><div class="progress-fill green" data-width="75"></div></div>
+        <div class="progress-label">75.0%</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem;" class="reveal">
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">Modulos completamente migrados</h3>
+      <div class="modules-migrated">
+        <div class="module-chip"><span class="check">✓</span> Emisora</div>
+        <div class="module-chip"><span class="check">✓</span> Licencias</div>
+        <div class="module-chip"><span class="check">✓</span> Notas Parciales</div>
+        <div class="module-chip"><span class="check">✓</span> Horario Est.</div>
+        <div class="module-chip"><span class="check">✓</span> Historial Acad.</div>
+        <div class="module-chip"><span class="check">✓</span> Carnet</div>
+        <div class="module-chip"><span class="check">✓</span> Editar Notas</div>
+        <div class="module-chip"><span class="check">✓</span> Horario y Asist.</div>
+        <div class="module-chip"><span class="check">✓</span> Memorandos</div>
+        <div class="module-chip"><span class="check">✓</span> Inventario</div>
+        <div class="module-chip"><span class="check">✓</span> Incapacidades</div>
+        <div class="module-chip"><span class="check">✓</span> Punto Violeta</div>
+        <div class="module-chip"><span class="check">✓</span> Res. Nomina</div>
+        <div class="module-chip"><span class="check">✓</span> Sugerencias</div>
+        <div class="module-chip"><span class="check">✓</span> Campus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section id="future">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">Proximos pasos</div>
+      <div class="section-title">Lo que viene en 2026 S2</div>
+    </div>
+    <div class="future-items">
+      <div class="future-item reveal reveal-delay-1">
+        <div class="future-icon">🅿️</div>
+        <div class="future-name">Parqueaderos</div>
+        <div class="future-desc">Gestion inteligente de espacios de parqueo en el campus universitario.</div>
+      </div>
+      <div class="future-item reveal reveal-delay-2">
+        <div class="future-icon">📋</div>
+        <div class="future-name">Helper de Matricula</div>
+        <div class="future-desc">Asistente para guiar al estudiante paso a paso en el proceso de matricula.</div>
+      </div>
+      <div class="future-item reveal reveal-delay-3">
+        <div class="future-icon">🔐</div>
+        <div class="future-name">Acceso por Huella</div>
+        <div class="future-desc">Autenticacion biometrica para un acceso mas rapido y seguro a la app.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="cta-title">Descarga UTP Movil</div>
+      <p style="color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem;">La app que conecta a nuestra comunidad universitaria</p>
+      <div class="qr-codes">
+        <div class="qr-item">
+          <img src="assets/qr-playstore.png" alt="QR Play Store" loading="lazy">
+          <p>Play Store</p>
+        </div>
+        <div class="qr-item">
+          <img src="assets/qr-appstore.png" alt="QR App Store" loading="lazy">
+          <p>App Store</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Universidad Tecnologica de Pereira</strong> · Gestion de Tecnologias Informaticas y Sistemas de Informacion</p>
+  <p style="margin-top: 0.5rem;">Informe de Evolucion App UTP Movil · 2023 – 2026</p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════
+   PARTICLES
+   ═══════════════════════════════════════════ */
+(function() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 6 + 2;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(p);
+  }
+})();
+
+/* ═══════════════════════════════════════════
+   SCROLL NAV
+   ═══════════════════════════════════════════ */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ═══════════════════════════════════════════
+   INTERSECTION OBSERVER — REVEAL
+   ═══════════════════════════════════════════ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // Animate counters
+      entry.target.querySelectorAll('[data-count]').forEach(el => {
+        animateCount(el);
+      });
+
+      // Animate progress bars
+      entry.target.querySelectorAll('.progress-fill[data-width]').forEach(el => {
+        setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 300);
+      });
+
+      // Animate user stat bars
+      entry.target.querySelectorAll('.user-stat-bar-fill[data-width]').forEach(el => {
+        setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 300);
+      });
+
+      // Animate retention bars
+      entry.target.querySelectorAll('.retention-bar[data-height]').forEach(el => {
+        setTimeout(() => { el.style.height = el.dataset.height + 'px'; }, 300);
+      });
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ═══════════════════════════════════════════
+   COUNTER ANIMATION
+   ═══════════════════════════════════════════ */
+function animateCount(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = 'true';
+  const target = parseInt(el.dataset.count);
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    const current = Math.round(eased * target);
+    el.textContent = current.toLocaleString('es-CO');
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// Hero counters (auto animate on load)
+setTimeout(() => {
+  document.querySelectorAll('.hero-stat-number[data-count]').forEach(el => animateCount(el));
+}, 800);
+
+/* ═══════════════════════════════════════════
+   TIMELINE FILL
+   ═══════════════════════════════════════════ */
+const timelineFill = document.getElementById('timeline-fill');
+const timelineSection = document.getElementById('timeline');
+if (timelineFill && timelineSection) {
+  window.addEventListener('scroll', () => {
+    const rect = timelineSection.getBoundingClientRect();
+    const sectionHeight = timelineSection.offsetHeight;
+    const viewportH = window.innerHeight;
+    if (rect.top < viewportH && rect.bottom > 0) {
+      const progress = Math.min(1, (viewportH - rect.top) / (sectionHeight + viewportH));
+      timelineFill.style.height = (progress * 100) + '%';
+    }
+  });
+}
+</script>
+</body>
+</html>
