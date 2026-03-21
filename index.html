@@ -892,6 +892,280 @@ footer strong { color: var(--white); font-weight: 600; }
   to { transform: rotate(360deg) translateX(50px); }
 }
 
+/* ═══════════════════════════════════════════
+   EVOLUTION COMPARISON
+   ═══════════════════════════════════════════ */
+#evolution {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+#evolution::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(11,61,145,0.04), transparent 70%);
+  border-radius: 50%;
+}
+#evolution::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -150px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(168,191,0,0.06), transparent 70%);
+  border-radius: 50%;
+}
+
+.evolution-intro {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.evolution-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.evo-tab {
+  padding: 0.6rem 1.25rem;
+  border-radius: 100px;
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-600);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.evo-tab:hover {
+  border-color: var(--utp-blue);
+  color: var(--utp-blue);
+}
+.evo-tab.active {
+  background: var(--utp-blue);
+  border-color: var(--utp-blue);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(11,61,145,0.3);
+}
+
+.evo-module {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+.evo-module.active {
+  display: block;
+  animation: evoFadeIn 0.5s ease-out;
+}
+
+@keyframes evoFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.evo-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+@media (max-width: 900px) {
+  .evo-comparison {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.evo-year-card {
+  position: relative;
+  text-align: center;
+}
+
+.evo-year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.evo-year-badge.y2023 {
+  background: rgba(200,16,46,0.1);
+  color: var(--utp-red);
+}
+.evo-year-badge.y2024 {
+  background: rgba(11,61,145,0.1);
+  color: var(--utp-blue);
+}
+.evo-year-badge.y2025 {
+  background: rgba(0,155,58,0.1);
+  color: var(--utp-green);
+}
+
+.evo-version-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.y2023 .evo-version-tag { background: rgba(200,16,46,0.15); }
+.y2024 .evo-version-tag { background: rgba(11,61,145,0.15); }
+.y2025 .evo-version-tag { background: rgba(0,155,58,0.15); }
+
+.evo-phone {
+  width: 220px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border-radius: 28px;
+  padding: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+.evo-phone:hover {
+  transform: scale(1.03);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+}
+.evo-phone-screen {
+  width: 100%;
+  aspect-ratio: 9/19.5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--white);
+}
+.evo-phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.evo-caption {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.4;
+  max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.evo-caption strong {
+  color: var(--gray-900);
+}
+
+/* Arrow connectors between phones */
+.evo-arrow {
+  display: none;
+}
+@media (min-width: 901px) {
+  .evo-comparison {
+    position: relative;
+  }
+  .evo-arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    background: var(--utp-blue);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(11,61,145,0.3);
+  }
+  .evo-arrow svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .evo-arrow-1 { left: calc(33.33% - 20px); }
+  .evo-arrow-2 { left: calc(66.66% - 20px); }
+}
+
+/* Module info bar */
+.evo-module-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.evo-module-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.evo-module-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0,155,58,0.1);
+  color: var(--utp-green);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+}
+
+/* Decorative elements matching Carta GTI identity */
+.evo-deco-dots {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.15;
+  z-index: 0;
+}
+.evo-deco-stripe {
+  position: absolute;
+  bottom: 30px;
+  left: -20px;
+  width: 200px;
+  height: 8px;
+  background: linear-gradient(90deg, var(--utp-blue), #5BB5E8, #A8BF00);
+  border-radius: 4px;
+  opacity: 0.3;
+  z-index: 0;
+  transform: rotate(-5deg);
+}
+.evo-deco-stripe-2 {
+  position: absolute;
+  top: 100px;
+  left: -40px;
+  width: 160px;
+  height: 6px;
+  background: linear-gradient(90deg, #A8BF00, #5BB5E8, var(--utp-blue));
+  border-radius: 4px;
+  opacity: 0.2;
+  z-index: 0;
+  transform: rotate(-15deg);
+}
+
 /* Utility */
 .text-center { text-align: center; }
 .mx-auto { margin-left: auto; margin-right: auto; }
@@ -908,6 +1182,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <li><a href="#timeline">Evolucion</a></li>
     <li><a href="#roles">Modulos</a></li>
     <li><a href="#impact">Impacto</a></li>
+    <li><a href="#evolution">Evolucion</a></li>
     <li><a href="#showcase">App</a></li>
   </ul>
 </nav>
@@ -1418,6 +1693,283 @@ footer strong { color: var(--white); font-weight: 600; }
   </div>
 </section>
 
+<!-- EVOLUTION COMPARISON -->
+<section id="evolution">
+  <!-- Decorative elements (Carta GTI identity) -->
+  <svg class="evo-deco-dots" viewBox="0 0 120 120">
+    <g fill="var(--utp-blue)">
+      <circle cx="10" cy="10" r="3"/><circle cx="30" cy="10" r="3"/><circle cx="50" cy="10" r="3"/><circle cx="70" cy="10" r="3"/><circle cx="90" cy="10" r="3"/><circle cx="110" cy="10" r="3"/>
+      <circle cx="10" cy="30" r="3"/><circle cx="30" cy="30" r="3"/><circle cx="50" cy="30" r="3"/><circle cx="70" cy="30" r="3"/><circle cx="90" cy="30" r="3"/><circle cx="110" cy="30" r="3"/>
+      <circle cx="10" cy="50" r="3"/><circle cx="30" cy="50" r="3"/><circle cx="50" cy="50" r="3"/><circle cx="70" cy="50" r="3"/><circle cx="90" cy="50" r="3"/><circle cx="110" cy="50" r="3"/>
+      <circle cx="10" cy="70" r="3"/><circle cx="30" cy="70" r="3"/><circle cx="50" cy="70" r="3"/><circle cx="70" cy="70" r="3"/><circle cx="90" cy="70" r="3"/><circle cx="110" cy="70" r="3"/>
+      <circle cx="10" cy="90" r="3"/><circle cx="30" cy="90" r="3"/><circle cx="50" cy="90" r="3"/><circle cx="70" cy="90" r="3"/><circle cx="90" cy="90" r="3"/><circle cx="110" cy="90" r="3"/>
+      <circle cx="10" cy="110" r="3"/><circle cx="30" cy="110" r="3"/><circle cx="50" cy="110" r="3"/><circle cx="70" cy="110" r="3"/><circle cx="90" cy="110" r="3"/><circle cx="110" cy="110" r="3"/>
+    </g>
+  </svg>
+  <div class="evo-deco-stripe"></div>
+  <div class="evo-deco-stripe-2"></div>
+
+  <div class="section-container">
+    <div class="evolution-intro reveal">
+      <div class="section-label" style="background: linear-gradient(90deg, var(--utp-blue), #5BB5E8, #A8BF00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Evolucion visual</div>
+      <div class="section-title">De Veritran a Design System propio</div>
+      <p class="section-subtitle mx-auto">Cada modulo ha sido rediseñado por completo. Selecciona un modulo para comparar las 3 versiones lado a lado.</p>
+    </div>
+
+    <div class="evolution-tabs reveal" id="evoTabs">
+      <button class="evo-tab active" data-module="home">Inicio</button>
+      <button class="evo-tab" data-module="login">Login</button>
+      <button class="evo-tab" data-module="campus">Campus</button>
+      <button class="evo-tab" data-module="emisora">Emisora</button>
+      <button class="evo-tab" data-module="carnet">Carnet</button>
+      <button class="evo-tab" data-module="notas">Notas Parciales</button>
+      <button class="evo-tab" data-module="horario">Horario</button>
+      <button class="evo-tab" data-module="historial">Historial Acad.</button>
+    </div>
+
+    <!-- HOME -->
+    <div class="evo-module active" data-module="home">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Pantalla de inicio</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 1 13 5 9 5"/><polyline points="1 13 5 9 9 13 13 7"/></svg>
+          Rediseño completo
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card reveal reveal-delay-1">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2023.png" alt="Home 2023" loading="lazy"></div></div>
+          <div class="evo-caption">Menu lateral basico con lista plana. <strong>Sin identidad visual</strong>, interfaz heredada de Veritran.</div>
+        </div>
+        <div class="evo-year-card reveal reveal-delay-2">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2024.png" alt="Home 2024" loading="lazy"></div></div>
+          <div class="evo-caption">Landing visual con foto del campus. <strong>Bienvenida inmersiva</strong> pero navegacion limitada.</div>
+        </div>
+        <div class="evo-year-card reveal reveal-delay-3">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2025.png" alt="Home 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Design System UTP</strong>. Servicios accesibles, emisora integrada, bottom nav. Moderno y funcional.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="evo-module" data-module="login">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Inicio de sesion</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="8" height="7" rx="1"/><path d="M7 11V7a4 4 0 018 0v4"/></svg>
+          Seguridad + UX
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2023.png" alt="Login 2023" loading="lazy"></div></div>
+          <div class="evo-caption">Modal emergente sobre el home. <strong>Selector de tipo de usuario</strong> manual y confuso.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2024.png" alt="Login 2024" loading="lazy"></div></div>
+          <div class="evo-caption">Pantalla dedicada con foto del campus. <strong>Formulario limpio</strong>, deteccion automatica de rol.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2025.png" alt="Login 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Minimalista y seguro</strong>. Boton de recuperacion, Design System, sin distracciones.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAMPUS -->
+    <div class="evo-module" data-module="campus">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Campus interactivo</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mapa completo
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2023.png" alt="Campus 2023" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Solo texto</strong>. Buscador de edificios sin mapa, lista basica sin contexto visual.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2024.png" alt="Campus 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Mapa interactivo</strong> con OpenStreetMap. Marcadores de edificios y busqueda integrada.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2025.png" alt="Campus 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>CARTO tiles + filtros</strong>. Categorias rapidas, etiquetas de edificios, navegacion a Google Maps.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMISORA -->
+    <div class="evo-module" data-module="emisora">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Emisora 88.2 FM</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Audio nativo
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2023.png" alt="Emisora 2023" loading="lazy"></div></div>
+          <div class="evo-caption">Player minimalista basico. <strong>Sin arte ni branding</strong>, botones genericos.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2024.png" alt="Emisora 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Ilustracion artistica</strong> full-screen. Identidad de Universitaria Estereo con impacto visual.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2025.png" alt="Emisora 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Design System</strong>. Branding UTP, indicador EN DIRECTO, controles claros y profesionales.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARNET -->
+    <div class="evo-module" data-module="carnet">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Carnet digital</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Identidad oficial
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2023.png" alt="Carnet 2023" loading="lazy"></div></div>
+          <div class="evo-caption">Carnet basico con codigo de barras. <strong>Diseno generico</strong>, sin foto visible.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2024.png" alt="Carnet 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Foto del estudiante</strong>, programa y semestre. Boton de codigo de barras dedicado.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2025.png" alt="Carnet 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Dark mode + escaner QR</strong>. Multiples carnets (swipe), boton escanear codigo integrado.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTAS PARCIALES -->
+    <div class="evo-module" data-module="notas">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Notas parciales</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Academico
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2023.png" alt="Notas 2023" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Tabla rigida</strong>. Encabezados en mayuscula, sin nombre de docente, estilo de planilla.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2024.png" alt="Notas 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Cards con docente</strong>. Nota y nombre del profesor visibles, expandible con detalle.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2025.png" alt="Notas 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Buscador + estado</strong>. Badge "En curso", total de materias, info completa por materia.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HORARIO -->
+    <div class="evo-module" data-module="horario">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Horario academico</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Calendario
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2023.png" alt="Horario 2023" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Grilla comprimida</strong>. Colores por materia pero texto ilegible, sin interaccion.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2024.png" alt="Horario 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Vista semanal</strong> tipo calendario. Navegacion por semanas, bloques horarios claros.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2025.png" alt="Horario 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Cards informativas</strong>. Codigo, grupo, salon, docente — toda la info en un vistazo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORIAL ACADEMICO -->
+    <div class="evo-module" data-module="historial">
+      <div class="evo-module-header">
+        <div class="evo-module-name">Historial academico</div>
+        <div class="evo-module-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
+          Trayectoria
+        </div>
+      </div>
+      <div class="evo-comparison">
+        <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2023.png" alt="Historial 2023" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Tabla densa</strong>. Periodos, notas y promedios en formato planilla sin jerarquia visual.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2024.png" alt="Historial 2024" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Lista por semestre</strong>. Selector de programa, notas coloreadas, acumulados visibles.</div>
+        </div>
+        <div class="evo-year-card">
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2025.png" alt="Historial 2025" loading="lazy"></div></div>
+          <div class="evo-caption"><strong>Dashboard academico</strong>. Promedio destacado, creditos, notas con colores semanticos.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- APP SHOWCASE -->
 <section id="showcase">
   <div class="section-container">
@@ -1674,6 +2226,27 @@ function animateCount(el) {
 setTimeout(() => {
   document.querySelectorAll('.hero-stat-number[data-count]').forEach(el => animateCount(el));
 }, 800);
+
+/* ═══════════════════════════════════════════
+   EVOLUTION TABS
+   ═══════════════════════════════════════════ */
+const evoTabsContainer = document.getElementById('evoTabs');
+if (evoTabsContainer) {
+  evoTabsContainer.addEventListener('click', (e) => {
+    const tab = e.target.closest('.evo-tab');
+    if (!tab) return;
+    const moduleName = tab.dataset.module;
+
+    // Update active tab
+    evoTabsContainer.querySelectorAll('.evo-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Show corresponding module
+    document.querySelectorAll('.evo-module').forEach(m => m.classList.remove('active'));
+    const target = document.querySelector(`.evo-module[data-module="${moduleName}"]`);
+    if (target) target.classList.add('active');
+  });
+}
 
 /* ═══════════════════════════════════════════
    TIMELINE FILL
