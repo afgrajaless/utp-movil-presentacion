@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App UTP Movil - Informe de Evolucion 2023-2026</title>
+<title>App UTP Móvil - Informe de Evolución 2023-2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -1017,7 +1017,7 @@ footer strong { color: var(--white); font-weight: 600; }
   color: var(--utp-green);
 }
 
-.evo-version-tag {
+.evo-versión-tag {
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
@@ -1025,9 +1025,9 @@ footer strong { color: var(--white); font-weight: 600; }
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.y2023 .evo-version-tag { background: rgba(200,16,46,0.15); }
-.y2024 .evo-version-tag { background: rgba(11,61,145,0.15); }
-.y2025 .evo-version-tag { background: rgba(0,155,58,0.15); }
+.y2023 .evo-versión-tag { background: rgba(200,16,46,0.15); }
+.y2024 .evo-versión-tag { background: rgba(11,61,145,0.15); }
+.y2025 .evo-versión-tag { background: rgba(0,155,58,0.15); }
 
 .evo-phone {
   width: 220px;
@@ -1169,20 +1169,113 @@ footer strong { color: var(--white); font-weight: 600; }
 /* Utility */
 .text-center { text-align: center; }
 .mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ═══════════════════════════════════════════
+   COMMUNITY VOICE
+   ═══════════════════════════════════════════ */
+#community {
+  background: var(--gray-50);
+}
+
+.community-stats {
+  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+  margin-top: 2rem; margin-bottom: 3rem;
+}
+.community-stat {
+  text-align: center;
+}
+.community-stat-number {
+  font-family: var(--font-display); font-size: 2.25rem; font-weight: 800;
+  color: var(--utp-blue); line-height: 1;
+}
+.community-stat-label {
+  font-size: 0.8rem; color: var(--gray-600); margin-top: 0.25rem;
+}
+
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem; margin-bottom: 3rem;
+}
+
+.testimonial-card {
+  background: var(--white); border-radius: 16px; padding: 1.5rem;
+  border: 1px solid var(--gray-200); position: relative;
+  transition: all 0.4s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(11, 61, 145, 0.1);
+  border-color: var(--utp-blue);
+}
+.testimonial-quote {
+  font-size: 0.92rem; color: var(--gray-800); line-height: 1.6;
+  font-style: italic; position: relative; padding-left: 1.25rem;
+}
+.testimonial-quote::before {
+  content: '\201C'; position: absolute; left: -0.1rem; top: -0.5rem;
+  font-size: 2.5rem; color: var(--utp-blue); opacity: 0.2;
+  font-family: Georgia, serif; line-height: 1;
+}
+.testimonial-stars {
+  display: flex; gap: 0.15rem; margin-top: 0.75rem;
+}
+.testimonial-star {
+  width: 16px; height: 16px; fill: var(--utp-gold);
+}
+
+.requests-subtitle {
+  font-family: var(--font-display); font-size: 1.5rem;
+  font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;
+}
+
+.requests-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.request-card {
+  background: var(--white); border-radius: 14px; padding: 1.25rem 1.5rem;
+  border: 1px solid var(--gray-200);
+  display: flex; align-items: center; gap: 1rem;
+  transition: all 0.3s ease;
+}
+.request-card:hover {
+  border-color: var(--utp-blue);
+  box-shadow: 0 8px 30px rgba(11, 61, 145, 0.08);
+}
+.request-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; flex-shrink: 0;
+  background: rgba(11, 61, 145, 0.08); color: var(--utp-blue);
+}
+.request-info { flex: 1; }
+.request-name {
+  font-weight: 700; color: var(--gray-900); font-size: 0.95rem;
+}
+.request-detail {
+  font-size: 0.8rem; color: var(--gray-600); margin-top: 0.15rem;
+}
+.request-count {
+  font-family: var(--font-display); font-weight: 800; font-size: 0.8rem;
+  color: var(--utp-blue); background: rgba(11, 61, 145, 0.08);
+  padding: 0.3rem 0.7rem; border-radius: 100px; white-space: nowrap;
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">UTP <span>Movil</span></div>
+  <div class="nav-logo">UTP <span>Móvil</span></div>
   <ul class="nav-links">
-    <li><a href="#numbers">Numeros</a></li>
+    <li><a href="#numbers">Números</a></li>
     <li><a href="#growth">Crecimiento</a></li>
-    <li><a href="#timeline">Evolucion</a></li>
-    <li><a href="#roles">Modulos</a></li>
+    <li><a href="#timeline">Historia</a></li>
+    <li><a href="#roles">Módulos</a></li>
     <li><a href="#impact">Impacto</a></li>
-    <li><a href="#evolution">Evolucion</a></li>
+    <li><a href="#community">Comunidad</a></li>
+    <li><a href="#evolution">Antes y Después</a></li>
     <li><a href="#showcase">App</a></li>
   </ul>
 </nav>
@@ -1195,14 +1288,14 @@ footer strong { color: var(--white); font-weight: 600; }
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
-      Informe de Evolucion 2023 - 2026
+      Informe de Evolución 2023 - 2026
     </div>
-    <h1>App UTP <span class="accent">Movil</span></h1>
-    <p class="hero-subtitle">3 anos conectando nuestra comunidad universitaria.<br>De 573 a 11.833 dispositivos diarios.</p>
+    <h1>App UTP <span class="accent">Móvil</span></h1>
+    <p class="hero-subtitle">3 años conectando nuestra comunidad universitaria.<br>De 573 a 11.833 dispositivos diarios.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-number" data-count="31">0</div>
-        <div class="hero-stat-label">Modulos</div>
+        <div class="hero-stat-label">Módulos</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-number" data-count="21141">0</div>
@@ -1228,9 +1321,9 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="numbers">
   <div class="section-container">
     <div class="text-center reveal">
-      <div class="section-label">La app en numeros</div>
+      <div class="section-label">La app en números</div>
       <div class="section-title">Crecimiento sostenido e impactante</div>
-      <p class="section-subtitle mx-auto">La App UTP Movil se ha convertido en el canal digital mas importante de la universidad.</p>
+      <p class="section-subtitle mx-auto">La App UTP Móvil se ha convertido en el canal digital más importante de la universidad.</p>
     </div>
     <div class="kpi-grid">
       <div class="kpi-card reveal reveal-delay-1">
@@ -1254,7 +1347,7 @@ footer strong { color: var(--white); font-weight: 600; }
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         </div>
         <div class="kpi-number" data-count="31">0</div>
-        <div class="kpi-label">Modulos funcionales</div>
+        <div class="kpi-label">Módulos funcionales</div>
         <div class="kpi-trend">Plataforma integral</div>
       </div>
       <div class="kpi-card reveal reveal-delay-4">
@@ -1274,14 +1367,13 @@ footer strong { color: var(--white); font-weight: 600; }
   <div class="section-container">
     <div class="reveal">
       <div class="section-label">Crecimiento</div>
-      <div class="section-title">Evolucion semestre a semestre</div>
-      <p class="section-subtitle">De 621 dispositivos en S1 2023 a mas de 10.800 en S1 2026.</p>
+      <div class="section-title">Evolución semestre a semestre</div>
+      <p class="section-subtitle">De 621 dispositivos en S1 2023 a más de 10.800 en S1 2026.</p>
     </div>
     <div class="chart-container reveal">
       <div class="chart-header">
         <div class="chart-title">Base instalada promedio por semestre</div>
         <div class="chart-legend">
-          <div class="chart-legend-item"><div class="chart-legend-dot" style="background: var(--utp-gold)"></div> Dispositivos</div>
         </div>
       </div>
       <svg class="growth-chart-svg" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet">
@@ -1350,9 +1442,9 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="timeline">
   <div class="section-container">
     <div class="text-center reveal">
-      <div class="section-label">Linea de tiempo</div>
-      <div class="section-title">Evolucion de UTP Movil</div>
-      <p class="section-subtitle mx-auto">De una app basica a una plataforma integral con 31 modulos y Design System.</p>
+      <div class="section-label">Línea de tiempo</div>
+      <div class="section-title">Evolución de UTP Móvil</div>
+      <p class="section-subtitle mx-auto">De una app básica a una plataforma integral con 31 módulos y Design System.</p>
     </div>
     <div class="timeline-wrapper">
       <div class="timeline-line"></div>
@@ -1362,7 +1454,7 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="timeline-content">
           <div class="timeline-date">2023 S1</div>
           <div class="timeline-heading">Inicio del Proyecto</div>
-          <div class="timeline-desc">Se recibe el aplicativo de Veritran y se comienza con el desarrollo de una solucion propia.</div>
+          <div class="timeline-desc">Se recibe el aplicativo de Veritran y se comienza con el desarrollo de una solución propia.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1372,7 +1464,7 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="timeline-content">
           <div class="timeline-date">2023 S2</div>
           <div class="timeline-heading">Lanzamiento Inicial</div>
-          <div class="timeline-desc">Primera version con modulos basicos. Salto de +589% en base instalada — el mayor crecimiento.</div>
+          <div class="timeline-desc">Primera versión con módulos básicos. Salto de +589% en base instalada — el mayor crecimiento.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1381,8 +1473,8 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="timeline-item reveal">
         <div class="timeline-content">
           <div class="timeline-date">2024 S1</div>
-          <div class="timeline-heading">Migracion de Modulos</div>
-          <div class="timeline-desc">+8 modulos migrados del Portal Estudiante y Docente al backend propio.</div>
+          <div class="timeline-heading">Migración de Módulos</div>
+          <div class="timeline-desc">+8 módulos migrados del Portal Estudiante y Docente al backend propio.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1391,8 +1483,8 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="timeline-item reveal">
         <div class="timeline-content">
           <div class="timeline-date">2024 S2</div>
-          <div class="timeline-heading">Expansion de Modulos</div>
-          <div class="timeline-desc">+7 modulos nuevos integrados. Portal Docente y Administrativo completos.</div>
+          <div class="timeline-heading">Expansión de Módulos</div>
+          <div class="timeline-desc">+7 módulos nuevos integrados. Portal Docente y Administrativo completos.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1402,7 +1494,7 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="timeline-content">
           <div class="timeline-date">2025 S1</div>
           <div class="timeline-heading">Mejora de Performance</div>
-          <div class="timeline-desc">Refactorizacion completa para cumplir con las necesidades de rendimiento en movil.</div>
+          <div class="timeline-desc">Refactorización completa para cumplir con las necesidades de rendimiento en móvil.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1412,7 +1504,7 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="timeline-content">
           <div class="timeline-date">2025 S2</div>
           <div class="timeline-heading">Design System UTP</div>
-          <div class="timeline-desc">Identidad visual institucional unificada. Sistema de diseno propio.</div>
+          <div class="timeline-desc">Identidad visual institucional unificada. Sistema de diseño propio.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot"></div>
@@ -1422,7 +1514,7 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="timeline-content">
           <div class="timeline-date">2026 S1</div>
           <div class="timeline-heading">V6.0.0 Release</div>
-          <div class="timeline-desc">Implementacion del nuevo diseno para todo el portal. La version mas completa y pulida.</div>
+          <div class="timeline-desc">Implementación del nuevo diseño para todo el portal. La versión más completa y pulida.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot" style="background: var(--utp-green); box-shadow: 0 0 0 3px var(--utp-green);"></div>
@@ -1430,9 +1522,9 @@ footer strong { color: var(--white); font-weight: 600; }
 
       <div class="timeline-item reveal">
         <div class="timeline-content" style="border-color: var(--utp-gold); background: rgba(240,179,35,0.05);">
-          <div class="timeline-date" style="color: var(--utp-gold);">2026 S2 — Proximos</div>
-          <div class="timeline-heading">Parqueaderos, Helper de Matricula, Acceso por Huella</div>
-          <div class="timeline-desc">Nuevas funcionalidades que expandiran aun mas la plataforma.</div>
+          <div class="timeline-date" style="color: var(--utp-gold);">2026 S2 — Próximos</div>
+          <div class="timeline-heading">Parqueaderos, Helper de Matrícula, Acceso por Huella</div>
+          <div class="timeline-desc">Nuevas funcionalidades que expandirán aún más la plataforma.</div>
         </div>
         <div style="width: 10%;"></div>
         <div class="timeline-dot" style="background: var(--utp-gold); box-shadow: 0 0 0 3px var(--utp-gold);"></div>
@@ -1446,14 +1538,14 @@ footer strong { color: var(--white); font-weight: 600; }
   <div class="section-container">
     <div class="text-center reveal">
       <div class="section-label">Funcionalidades</div>
-      <div class="section-title">31 modulos, 4 perfiles principales</div>
-      <p class="section-subtitle mx-auto">Cada perfil tiene modulos especificos con sub-roles que personalizan la experiencia.</p>
+      <div class="section-title">31 módulos, 4 perfiles principales</div>
+      <p class="section-subtitle mx-auto">Cada perfil tiene módulos específicos con sub-roles que personalizan la experiencia.</p>
     </div>
     <div class="roles-grid">
       <div class="role-card reveal reveal-delay-1">
         <div class="role-count">17</div>
         <div class="role-name">General</div>
-        <div class="role-desc">Visitantes y registrados — modulos base</div>
+        <div class="role-desc">Visitantes y registrados — módulos base</div>
         <div class="role-modules">
           <span class="role-module-tag">Directorio</span>
           <span class="role-module-tag">Campus</span>
@@ -1463,13 +1555,13 @@ footer strong { color: var(--white); font-weight: 600; }
           <span class="role-module-tag">Biblioteca</span>
           <span class="role-module-tag">PQRS</span>
           <span class="role-module-tag">Tienda UTP</span>
-          <span class="role-module-tag">+9 mas</span>
+          <span class="role-module-tag">+9 más</span>
         </div>
       </div>
       <div class="role-card reveal reveal-delay-2">
         <div class="role-count">+7</div>
         <div class="role-name">Estudiante</div>
-        <div class="role-desc">Base + modulos academicos adicionales</div>
+        <div class="role-desc">Base + módulos académicos adicionales</div>
         <div class="role-modules">
           <span class="role-module-tag">Notas Parciales</span>
           <span class="role-module-tag">Horario</span>
@@ -1483,7 +1575,7 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="role-card reveal reveal-delay-3">
         <div class="role-count">+9</div>
         <div class="role-name">Docente</div>
-        <div class="role-desc">Base + modulos docentes y laborales</div>
+        <div class="role-desc">Base + módulos docentes y laborales</div>
         <div class="role-modules">
           <span class="role-module-tag">Editar Notas</span>
           <span class="role-module-tag">Horario</span>
@@ -1499,7 +1591,7 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="role-card reveal reveal-delay-4">
         <div class="role-count">+7</div>
         <div class="role-name">Administrativo</div>
-        <div class="role-desc">Base + modulos laborales y administrativos</div>
+        <div class="role-desc">Base + módulos laborales y administrativos</div>
         <div class="role-modules">
           <span class="role-module-tag">Nomina</span>
           <span class="role-module-tag">Memorandos</span>
@@ -1519,7 +1611,7 @@ footer strong { color: var(--white); font-weight: 600; }
   <div class="section-container">
     <div class="text-center reveal">
       <div class="section-label">Nuestra comunidad digital</div>
-      <div class="section-title">Quien usa la app?</div>
+      <div class="section-title">¿Quién usa la app?</div>
       <p class="section-subtitle mx-auto">21.141 usuarios registrados con potencial sobre 17.777 estudiantes activos.</p>
     </div>
     <div class="users-grid reveal">
@@ -1559,7 +1651,7 @@ footer strong { color: var(--white); font-weight: 600; }
             <div class="user-stat-dot" style="background: var(--utp-red);"></div>
             <div class="user-stat-info">
               <div class="user-stat-name">Docentes — 4.0%</div>
-              <div class="user-stat-detail">824 de 1.459 docentes de la UTP</div>
+              <div class="user-stat-detail">824 docentes</div>
               <div class="user-stat-bar"><div class="user-stat-bar-fill" data-width="56.5" style="background: var(--utp-red);"></div></div>
             </div>
           </div>
@@ -1567,14 +1659,14 @@ footer strong { color: var(--white); font-weight: 600; }
             <div class="user-stat-dot" style="background: var(--utp-gold);"></div>
             <div class="user-stat-info">
               <div class="user-stat-name">Administrativos — 0.2%</div>
-              <div class="user-stat-detail">Gran oportunidad de expansion</div>
+              <div class="user-stat-detail">Gran oportunidad de expansión</div>
               <div class="user-stat-bar"><div class="user-stat-bar-fill" data-width="2" style="background: var(--utp-gold);"></div></div>
             </div>
           </div>
         </div>
       </div>
       <div>
-        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Plataforma movil</h3>
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Plataforma móvil</h3>
         <div class="platform-cards">
           <div class="platform-card">
             <div class="platform-icon">
@@ -1592,12 +1684,12 @@ footer strong { color: var(--white); font-weight: 600; }
           </div>
         </div>
         <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 1rem; text-align: center; line-height: 1.5;">
-          Distribucion equilibrada — ambas plataformas requieren atencion prioritaria equivalente.
+          Distribución equilibrada — ambas plataformas requieren atención prioritaria equivalente.
         </p>
 
         <!-- Retention -->
         <div style="margin-top: 2.5rem;">
-          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Retencion entre semestres</h3>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1.5rem;">Retención entre semestres</h3>
           <div class="retention-chart" style="justify-content: flex-start;">
             <div class="retention-bar-item">
               <div class="retention-bar" data-height="118" style="background: linear-gradient(to top, var(--utp-blue), var(--utp-teal));">
@@ -1619,7 +1711,7 @@ footer strong { color: var(--white); font-weight: 600; }
             </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--utp-green); font-weight: 600; margin-top: 0.75rem;">
-            Tendencia positiva: cohortes recientes retienen mas usuarios.
+            Tendencia positiva: cohortes recientes retienen más usuarios.
           </p>
         </div>
       </div>
@@ -1633,7 +1725,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <div class="text-center reveal">
       <div class="section-label">Impacto real</div>
       <div class="section-title">Lo que dice nuestra comunidad — MSU 2025</div>
-      <p class="section-subtitle mx-auto">Reconocimiento creciente y mejoras reales en calificaciones de tiendas.</p>
+      <p class="section-subtitle mx-auto">Reconocimiento creciente y mejoras reales en calificaciónes de tiendas.</p>
     </div>
     <div class="impact-grid reveal">
       <div class="impact-card">
@@ -1649,7 +1741,7 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="impact-card">
         <div class="impact-number">#3</div>
         <div class="impact-label">Medio institucional</div>
-        <div class="impact-detail">Mas usado de 8 medidos</div>
+        <div class="impact-detail">Más usado de 8 medidos</div>
       </div>
     </div>
 
@@ -1670,7 +1762,7 @@ footer strong { color: var(--white); font-weight: 600; }
           </div>
           <div class="rating-arrow">→</div>
           <div>
-            <div style="font-size: 0.75rem; opacity: 0.5;">Despues</div>
+            <div style="font-size: 0.75rem; opacity: 0.5;">Después</div>
             <div class="rating-value" style="color: var(--utp-green-light);">3.5</div>
           </div>
         </div>
@@ -1686,8 +1778,161 @@ footer strong { color: var(--white); font-weight: 600; }
           <svg width="28" height="28" viewBox="0 0 24 24" fill="#F0B323"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
         </div>
         <div class="rating-value" style="font-size: 5rem; color: var(--utp-gold); margin: 0.5rem 0;">5.0</div>
-        <div class="rating-improvement" style="background: rgba(240,179,35,0.2); color: var(--utp-gold);">Calificacion perfecta</div>
-        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 0.75rem;">Score reiniciado — usuarios nuevos evaluan con la maxima calificacion</p>
+        <div class="rating-improvement" style="background: rgba(240,179,35,0.2); color: var(--utp-gold);">Calificación perfecta</div>
+        <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 0.75rem;">Score reiniciado — usuarios nuevos evaluan con la máxima calificación</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY VOICE -->
+<section id="community">
+  <div class="section-container">
+    <div class="text-center reveal">
+      <div class="section-label">La voz de nuestra comunidad</div>
+      <div class="section-title">Lo que dicen nuestros usuarios</div>
+      <p class="section-subtitle mx-auto">1.139 respuestas recopiladas desde el módulo de sugerencias de la app.</p>
+    </div>
+
+    <div class="community-stats reveal">
+      <div class="community-stat">
+        <div class="community-stat-number">4.19</div>
+        <div class="community-stat-label">Promedio / 5.0</div>
+      </div>
+      <div class="community-stat">
+        <div class="community-stat-number">68.9%</div>
+        <div class="community-stat-label">Calificación 4 o 5</div>
+      </div>
+      <div class="community-stat">
+        <div class="community-stat-number">1.139</div>
+        <div class="community-stat-label">Respuestas totales</div>
+      </div>
+    </div>
+
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Excelente, cambios significativos que apoyan una experiencia única sobre nuestro proceso en nuestra alma mater. Felicitaciones.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Gran avance tecnológico, excelente UI/UX. La sacaron del estadio con esta actualización, felicitaciones. Muchas gracias.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Qué locura de cambio de app. Como estudiante de ISC me les quito el sombrero, qué cambio tan increíble y para bien. Ahora sí la encuentro más funcional.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Está súper linda la nueva interfaz. Me encanta que hayan incluido el cálculo de promedio total de la carrera, los colores dependiendo de la nota y el modo oscuro.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">La aplicación es intuitiva y fácil de usar. Excelente interfaz y buena fluidez, ya era hora de cambiar la app de la universidad.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">Quiero destacar mucho cómo han mejorado esta app. Es más completa, más bonita e intuitiva. Me pareció excelente el rediseño.</div>
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="requests-subtitle">Lo que nos piden</div>
+      <div class="requests-grid">
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 11c0-2.21 1.79-4 4-4s4 1.79 4 4v1"/><rect x="3" y="16" width="18" height="6" rx="2"/><circle cx="12" cy="19" r="1"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Persistencia de sesión / Biométricos</div>
+            <div class="request-detail">Login con huella, Face ID o recordar credenciales</div>
+          </div>
+          <div class="request-count">+45 menciones</div>
+        </div>
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Modo oscuro</div>
+            <div class="request-detail">Tema oscuro para toda la aplicación</div>
+          </div>
+          <div class="request-count">~8 menciones</div>
+        </div>
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Horario semanal completo</div>
+            <div class="request-detail">Vista semanal además de la diaria, incluir ILEX</div>
+          </div>
+          <div class="request-count">~5 menciones</div>
+        </div>
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Simulador de notas con decimales</div>
+            <div class="request-detail">Permitir decimales y simular promedio ponderado</div>
+          </div>
+          <div class="request-count">~3 menciones</div>
+        </div>
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Plan de estudios / Pensum</div>
+            <div class="request-detail">Ver materias pendientes y créditos por materia</div>
+          </div>
+          <div class="request-count">~3 menciones</div>
+        </div>
+        <div class="request-card">
+          <div class="request-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <div class="request-info">
+            <div class="request-name">Notificaciones push</div>
+            <div class="request-detail">Avisos de notas subidas y próximas clases</div>
+          </div>
+          <div class="request-count">~3 menciones</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1711,9 +1956,9 @@ footer strong { color: var(--white); font-weight: 600; }
 
   <div class="section-container">
     <div class="evolution-intro reveal">
-      <div class="section-label" style="background: linear-gradient(90deg, var(--utp-blue), #5BB5E8, #A8BF00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Evolucion visual</div>
+      <div class="section-label" style="background: linear-gradient(90deg, var(--utp-blue), #5BB5E8, #A8BF00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Evolución visual</div>
       <div class="section-title">De Veritran a Design System propio</div>
-      <p class="section-subtitle mx-auto">Cada modulo ha sido rediseñado por completo. Selecciona un modulo para comparar las 3 versiones lado a lado.</p>
+      <p class="section-subtitle mx-auto">Cada modulo ha sido rediseñado por completo. Selecciona un modulo para comparar las 3 versiónes lado a lado.</p>
     </div>
 
     <div class="evolution-tabs reveal" id="evoTabs">
@@ -1740,17 +1985,17 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card reveal reveal-delay-1">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2023.png" alt="Home 2023" loading="lazy"></div></div>
-          <div class="evo-caption">Menu lateral basico con lista plana. <strong>Sin identidad visual</strong>, interfaz heredada de Veritran.</div>
+          <div class="evo-caption">Menu lateral básico con lista plana. <strong>Sin identidad visual</strong>, interfaz heredada de Veritran.</div>
         </div>
         <div class="evo-year-card reveal reveal-delay-2">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2024.png" alt="Home 2024" loading="lazy"></div></div>
-          <div class="evo-caption">Landing visual con foto del campus. <strong>Bienvenida inmersiva</strong> pero navegacion limitada.</div>
+          <div class="evo-caption">Landing visual con foto del campus. <strong>Bienvenida inmersiva</strong> pero navegación limitada.</div>
         </div>
         <div class="evo-year-card reveal reveal-delay-3">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/home_2025.png" alt="Home 2025" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Design System UTP</strong>. Servicios accesibles, emisora integrada, bottom nav. Moderno y funcional.</div>
         </div>
@@ -1760,7 +2005,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <!-- LOGIN -->
     <div class="evo-module" data-module="login">
       <div class="evo-module-header">
-        <div class="evo-module-name">Inicio de sesion</div>
+        <div class="evo-module-name">Inicio de sesión</div>
         <div class="evo-module-badge">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="8" height="7" rx="1"/><path d="M7 11V7a4 4 0 018 0v4"/></svg>
           Seguridad + UX
@@ -1770,19 +2015,19 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2023.png" alt="Login 2023" loading="lazy"></div></div>
           <div class="evo-caption">Modal emergente sobre el home. <strong>Selector de tipo de usuario</strong> manual y confuso.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2024.png" alt="Login 2024" loading="lazy"></div></div>
-          <div class="evo-caption">Pantalla dedicada con foto del campus. <strong>Formulario limpio</strong>, deteccion automatica de rol.</div>
+          <div class="evo-caption">Pantalla dedicada con foto del campus. <strong>Formulario limpio</strong>, detección automática de rol.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/login_2025.png" alt="Login 2025" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Minimalista y seguro</strong>. Boton de recuperacion, Design System, sin distracciones.</div>
+          <div class="evo-caption"><strong>Minimalista y seguro</strong>. Boton de recuperación, Design System, sin distracciones.</div>
         </div>
       </div>
     </div>
@@ -1800,19 +2045,19 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2023.png" alt="Campus 2023" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Solo texto</strong>. Buscador de edificios sin mapa, lista basica sin contexto visual.</div>
+          <div class="evo-caption"><strong>Solo texto</strong>. Buscador de edificios sin mapa, lista básica sin contexto visual.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2024.png" alt="Campus 2024" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Mapa interactivo</strong> con OpenStreetMap. Marcadores de edificios y busqueda integrada.</div>
+          <div class="evo-caption"><strong>Mapa interactivo</strong> con OpenStreetMap. Marcadores de edificios y búsqueda integrada.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/campus_2025.png" alt="Campus 2025" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>CARTO tiles + filtros</strong>. Categorias rapidas, etiquetas de edificios, navegacion a Google Maps.</div>
+          <div class="evo-caption"><strong>CARTO tiles + filtros</strong>. Categorias rápidas, etiquetas de edificios, navegación a Google Maps.</div>
         </div>
       </div>
     </div>
@@ -1830,17 +2075,17 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2023.png" alt="Emisora 2023" loading="lazy"></div></div>
-          <div class="evo-caption">Player minimalista basico. <strong>Sin arte ni branding</strong>, botones genericos.</div>
+          <div class="evo-caption">Player minimalista básico. <strong>Sin arte ni branding</strong>, botones genéricos.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2024.png" alt="Emisora 2024" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Ilustracion artistica</strong> full-screen. Identidad de Universitaria Estereo con impacto visual.</div>
+          <div class="evo-caption"><strong>Ilustración artística</strong> full-screen. Identidad de Universitaria Estéreo con impacto visual.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/emisora_2025.png" alt="Emisora 2025" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Design System</strong>. Branding UTP, indicador EN DIRECTO, controles claros y profesionales.</div>
         </div>
@@ -1860,19 +2105,19 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2023.png" alt="Carnet 2023" loading="lazy"></div></div>
-          <div class="evo-caption">Carnet basico con codigo de barras. <strong>Diseno generico</strong>, sin foto visible.</div>
+          <div class="evo-caption">Carnet básico con código de barras. <strong>Diseno genérico</strong>, sin foto visible.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2024.png" alt="Carnet 2024" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Foto del estudiante</strong>, programa y semestre. Boton de codigo de barras dedicado.</div>
+          <div class="evo-caption"><strong>Foto del estudiante</strong>, programa y semestre. Boton de código de barras dedicado.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/carnet_2025.png" alt="Carnet 2025" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Dark mode + escaner QR</strong>. Multiples carnets (swipe), boton escanear codigo integrado.</div>
+          <div class="evo-caption"><strong>Dark mode + escaner QR</strong>. Multiples carnets (swipe), boton escanear código integrado.</div>
         </div>
       </div>
     </div>
@@ -1883,24 +2128,24 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-module-name">Notas parciales</div>
         <div class="evo-module-badge">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Academico
+          Académico
         </div>
       </div>
       <div class="evo-comparison">
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2023.png" alt="Notas 2023" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Tabla rigida</strong>. Encabezados en mayuscula, sin nombre de docente, estilo de planilla.</div>
+          <div class="evo-caption"><strong>Tabla rígida</strong>. Encabezados en mayúscula, sin nombre de docente, estilo de planilla.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2024.png" alt="Notas 2024" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Cards con docente</strong>. Nota y nombre del profesor visibles, expandible con detalle.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/notas_2025.png" alt="Notas 2025" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Buscador + estado</strong>. Badge "En curso", total de materias, info completa por materia.</div>
         </div>
@@ -1910,7 +2155,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <!-- HORARIO -->
     <div class="evo-module" data-module="horario">
       <div class="evo-module-header">
-        <div class="evo-module-name">Horario academico</div>
+        <div class="evo-module-name">Horario académico</div>
         <div class="evo-module-badge">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Calendario
@@ -1920,19 +2165,19 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2023.png" alt="Horario 2023" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Grilla comprimida</strong>. Colores por materia pero texto ilegible, sin interaccion.</div>
+          <div class="evo-caption"><strong>Grilla comprimida</strong>. Colores por materia pero texto ilegible, sin interacción.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2024.png" alt="Horario 2024" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Vista semanal</strong> tipo calendario. Navegacion por semanas, bloques horarios claros.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/horario_2025.png" alt="Horario 2025" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Cards informativas</strong>. Codigo, grupo, salon, docente — toda la info en un vistazo.</div>
+          <div class="evo-caption"><strong>Cards informativas</strong>. Codigo, grupo, salón, docente — toda la info en un vistazo.</div>
         </div>
       </div>
     </div>
@@ -1940,7 +2185,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <!-- HISTORIAL ACADEMICO -->
     <div class="evo-module" data-module="historial">
       <div class="evo-module-header">
-        <div class="evo-module-name">Historial academico</div>
+        <div class="evo-module-name">Historial académico</div>
         <div class="evo-module-badge">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
           Trayectoria
@@ -1950,19 +2195,19 @@ footer strong { color: var(--white); font-weight: 600; }
         <div class="evo-arrow evo-arrow-1"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-arrow evo-arrow-2"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2023">2023 <span class="evo-version-tag">Veritran</span></div>
+          <div class="evo-year-badge y2023">2023 <span class="evo-versión-tag">Veritran</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2023.png" alt="Historial 2023" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Tabla densa</strong>. Periodos, notas y promedios en formato planilla sin jerarquia visual.</div>
+          <div class="evo-caption"><strong>Tabla densa</strong>. Periodos, notas y promedios en formato planilla sin jerarquía visual.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2024">2024 <span class="evo-version-tag">V3-V4</span></div>
+          <div class="evo-year-badge y2024">2024 <span class="evo-versión-tag">V3-V4</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2024.png" alt="Historial 2024" loading="lazy"></div></div>
           <div class="evo-caption"><strong>Lista por semestre</strong>. Selector de programa, notas coloreadas, acumulados visibles.</div>
         </div>
         <div class="evo-year-card">
-          <div class="evo-year-badge y2025">2025-26 <span class="evo-version-tag">V6 DS</span></div>
+          <div class="evo-year-badge y2025">2025-26 <span class="evo-versión-tag">V6 DS</span></div>
           <div class="evo-phone"><div class="evo-phone-screen"><img src="assets/evolution/historial_2025.png" alt="Historial 2025" loading="lazy"></div></div>
-          <div class="evo-caption"><strong>Dashboard academico</strong>. Promedio destacado, creditos, notas con colores semanticos.</div>
+          <div class="evo-caption"><strong>Dashboard académico</strong>. Promedio destacado, créditos, notas con colores semánticos.</div>
         </div>
       </div>
     </div>
@@ -1976,8 +2221,8 @@ footer strong { color: var(--white); font-weight: 600; }
     <div class="showcase-grid">
       <div class="showcase-text reveal">
         <div class="section-label">La app</div>
-        <div class="section-title">UTP Movil V6.0</div>
-        <p class="section-subtitle">La version mas completa y pulida de la app. Nuevo diseno institucional con Design System propio.</p>
+        <div class="section-title">UTP Móvil V6.0</div>
+        <p class="section-subtitle">La versión más completa y pulida de la app. Nuevo diseño institucional con Design System propio.</p>
         <div class="showcase-features">
           <div class="showcase-feature">
             <div class="showcase-feature-icon">📱</div>
@@ -1993,7 +2238,7 @@ footer strong { color: var(--white); font-weight: 600; }
           </div>
           <div class="showcase-feature">
             <div class="showcase-feature-icon">🔒</div>
-            Autenticacion segura (JWT + LDAP)
+            Autenticación segura (JWT + LDAP)
           </div>
           <div class="showcase-feature">
             <div class="showcase-feature-icon">🗺️</div>
@@ -2004,7 +2249,7 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="phone-mockup reveal reveal-delay-2">
         <div class="phone-frame">
           <div class="phone-screen">
-            <img src="assets/app-screenshot.png" alt="UTP Movil App Screenshot" loading="lazy">
+            <img src="assets/app-screenshot.png" alt="UTP Móvil App Screenshot" loading="lazy">
           </div>
         </div>
       </div>
@@ -2016,8 +2261,8 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="design">
   <div class="section-container">
     <div class="text-center reveal">
-      <div class="section-label">El diseno importa</div>
-      <div class="section-title">Por que actualizar constantemente?</div>
+      <div class="section-label">El diseño importa</div>
+      <div class="section-title">¿Por qué actualizar constantemente?</div>
     </div>
     <div class="design-grid">
       <div class="design-card reveal reveal-delay-1">
@@ -2028,12 +2273,12 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="design-card reveal reveal-delay-2">
         <div class="design-number">02</div>
         <div class="design-heading">Confianza</div>
-        <div class="design-desc">La primera impresion digital de la UTP es la app</div>
+        <div class="design-desc">La primera impresión digital de la UTP es la app</div>
       </div>
       <div class="design-card reveal reveal-delay-3">
         <div class="design-number">03</div>
         <div class="design-heading">Usabilidad</div>
-        <div class="design-desc">Reduce errores, acelera tareas, mejora satisfaccion</div>
+        <div class="design-desc">Reduce errores, acelera tareas, mejora satisfacción</div>
       </div>
       <div class="design-card reveal reveal-delay-4">
         <div class="design-number">04</div>
@@ -2048,26 +2293,26 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="migration">
   <div class="section-container">
     <div class="text-center reveal">
-      <div class="section-label">Estado de migracion</div>
-      <div class="section-title">Cuanto hemos avanzado?</div>
+      <div class="section-label">Estado de migración</div>
+      <div class="section-title">¿Cuánto hemos avanzado?</div>
     </div>
     <div class="migration-bars reveal">
       <div class="migration-card">
         <div class="migration-title">Servicios con backend propio</div>
-        <div class="migration-detail">21 de 31 modulos migrados</div>
+        <div class="migration-detail">21 de 31 módulos migrados</div>
         <div class="progress-bar"><div class="progress-fill blue" data-width="67.7"></div></div>
         <div class="progress-label">67.7%</div>
       </div>
       <div class="migration-card">
         <div class="migration-title">Identidad visual unificada — Design System v6</div>
-        <div class="migration-detail">15 de 20 modulos nativos</div>
-        <div class="progress-bar"><div class="progress-fill green" data-width="75"></div></div>
-        <div class="progress-label">75.0%</div>
+        <div class="migration-detail">18 de 21 módulos nativos</div>
+        <div class="progress-bar"><div class="progress-fill green" data-width="85.7"></div></div>
+        <div class="progress-label">85.7%</div>
       </div>
     </div>
 
     <div style="margin-top: 3rem;" class="reveal">
-      <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">Modulos completamente migrados</h3>
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">Módulos completamente migrados</h3>
       <div class="modules-migrated">
         <div class="module-chip"><span class="check">✓</span> Emisora</div>
         <div class="module-chip"><span class="check">✓</span> Licencias</div>
@@ -2093,24 +2338,24 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="future">
   <div class="section-container">
     <div class="text-center reveal">
-      <div class="section-label">Proximos pasos</div>
+      <div class="section-label">Próximos pasos</div>
       <div class="section-title">Lo que viene en 2026 S2</div>
     </div>
     <div class="future-items">
       <div class="future-item reveal reveal-delay-1">
         <div class="future-icon">🅿️</div>
         <div class="future-name">Parqueaderos</div>
-        <div class="future-desc">Gestion inteligente de espacios de parqueo en el campus universitario.</div>
+        <div class="future-desc">Gestión inteligente de espacios de parqueo en el campus universitario.</div>
       </div>
       <div class="future-item reveal reveal-delay-2">
         <div class="future-icon">📋</div>
-        <div class="future-name">Helper de Matricula</div>
-        <div class="future-desc">Asistente para guiar al estudiante paso a paso en el proceso de matricula.</div>
+        <div class="future-name">Helper de Matrícula</div>
+        <div class="future-desc">Asistente para guiar al estudiante paso a paso en el proceso de matrícula.</div>
       </div>
       <div class="future-item reveal reveal-delay-3">
         <div class="future-icon">🔐</div>
         <div class="future-name">Acceso por Huella</div>
-        <div class="future-desc">Autenticacion biometrica para un acceso mas rapido y seguro a la app.</div>
+        <div class="future-desc">Autenticación biométrica para un acceso más rápido y seguro a la app.</div>
       </div>
     </div>
   </div>
@@ -2120,7 +2365,7 @@ footer strong { color: var(--white); font-weight: 600; }
 <section id="cta">
   <div class="section-container">
     <div class="reveal">
-      <div class="cta-title">Descarga UTP Movil</div>
+      <div class="cta-title">Descarga UTP Móvil</div>
       <p style="color: var(--gray-600); font-size: 1.1rem; margin-bottom: 2rem;">La app que conecta a nuestra comunidad universitaria</p>
       <div class="qr-codes">
         <div class="qr-item">
@@ -2137,8 +2382,8 @@ footer strong { color: var(--white); font-weight: 600; }
 </section>
 
 <footer>
-  <p><strong>Universidad Tecnologica de Pereira</strong> · Gestion de Tecnologias Informaticas y Sistemas de Informacion</p>
-  <p style="margin-top: 0.5rem;">Informe de Evolucion App UTP Movil · 2023 – 2026</p>
+  <p><strong>Universidad Tecnológica de Pereira</strong> · Gestión de Tecnologías Informáticas y Sistemas de Información</p>
+  <p style="margin-top: 0.5rem;">Informe de Evolución App UTP Móvil · 2023 – 2026</p>
 </footer>
 
 <script>
