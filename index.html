@@ -58,8 +58,15 @@ nav {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 nav.scrolled { background: rgba(6, 38, 84, 0.98); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-.nav-logo { color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; }
+.nav-logo { color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.nav-logo img { height: 32px; width: auto; }
 .nav-logo span { color: var(--utp-gold); }
+
+.hero-logo { animation: fadeInDown 0.6s ease-out; margin-bottom: 1.5rem; }
+.hero-logo img { height: 80px; width: auto; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3)); }
+
+.footer-logo { margin-bottom: 1rem; }
+.footer-logo img { height: 48px; width: auto; opacity: 0.9; }
 .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem;
@@ -1267,7 +1274,7 @@ footer strong { color: var(--white); font-weight: 600; }
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">UTP <span>Móvil</span></div>
+  <div class="nav-logo"><img src="logo.png" alt="Logo UTP"></div>
   <ul class="nav-links">
     <li><a href="#numbers">Números</a></li>
     <li><a href="#growth">Crecimiento</a></li>
@@ -1286,12 +1293,13 @@ footer strong { color: var(--white); font-weight: 600; }
   <div class="hero-glow hero-glow-2"></div>
   <div class="particles" id="particles"></div>
   <div class="hero-content">
+    <div class="hero-logo"><img src="logo.png" alt="Logo UTP"></div>
     <div class="hero-badge">
       <span class="dot"></span>
       Informe de Evolución 2023 - 2026
     </div>
     <h1>App UTP <span class="accent">Móvil</span></h1>
-    <p class="hero-subtitle">3 años conectando nuestra comunidad universitaria.<br>De 573 a 11.833 dispositivos diarios.</p>
+    <p class="hero-subtitle">3 años conectando nuestra comunidad universitaria.<br>De 6 a 11075 dispositivos diarios.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-number" data-count="31">0</div>
@@ -1323,7 +1331,7 @@ footer strong { color: var(--white); font-weight: 600; }
     <div class="text-center reveal">
       <div class="section-label">La app en números</div>
       <div class="section-title">Crecimiento sostenido e impactante</div>
-      <p class="section-subtitle mx-auto">La App UTP Móvil se ha convertido en el canal digital más importante de la universidad.</p>
+      <p class="section-subtitle mx-auto">La App UTP Móvil se ha convertido en el tercer canal digital más importante de la universidad.</p>
     </div>
     <div class="kpi-grid">
       <div class="kpi-card reveal reveal-delay-1">
@@ -2345,7 +2353,7 @@ footer strong { color: var(--white); font-weight: 600; }
       <div class="future-item reveal reveal-delay-1">
         <div class="future-icon">🅿️</div>
         <div class="future-name">Parqueaderos</div>
-        <div class="future-desc">Gestión inteligente de espacios de parqueo en el campus universitario.</div>
+        <div class="future-desc">Conoce la disponibilidad de los parqueaderos del campus a tiempo real, no más conos.</div>
       </div>
       <div class="future-item reveal reveal-delay-2">
         <div class="future-icon">📋</div>
@@ -2382,6 +2390,7 @@ footer strong { color: var(--white); font-weight: 600; }
 </section>
 
 <footer>
+  <div class="footer-logo"><img src="logo.png" alt="Logo UTP"></div>
   <p><strong>Universidad Tecnológica de Pereira</strong> · Gestión de Tecnologías Informáticas y Sistemas de Información</p>
   <p style="margin-top: 0.5rem;">Informe de Evolución App UTP Móvil · 2023 – 2026</p>
 </footer>
